@@ -7,34 +7,16 @@ import Select from 'react-select'
 
 
 class Registro extends React.Component {
-    
-    constructor(props){
-    super(props);
-    this.state = {
-      funcion: "Factorial",
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    }
 
     
- handleChange(e) {
-    this.setState({ funcion: e.target.value });
-  }
     render() {
         return (
             <div >
                 <div className='App-header'>
                     <h1>Funciones</h1>
-                    <Select id ="funcion" onChange={this.handleChange}>
-                      <option value="/Factorial" selected>Factorial</option>
-                      <option value="/Fibonacci">Fibonacci</option>
-                      <option value="/Triangulo">Area y Perimetro Triangulo</option>
-                      <option value="/Circulo">Area y Perimetro Circulo</option>
-                      <option value="/Rectangulo">Area y Perimetro Rectangulo</option>
-                    </Select>
+                    <h1>Camilo Mafioly Yacaman</h1>
+                    <h1>Implementacion de software</h1>
                     <br/>
-                    <button >{this.state.funcion}</button>
                     
 
                 </div>
