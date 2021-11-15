@@ -1,17 +1,29 @@
 import React, { Component, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import MathService from "../Services/MathService";
+import { Spinner } from "react-bootstrap";
 function Circulo (){
-    function fetchValues(){
-        //fetch("http://localhost:3001/Rectangulo?Lado1="+lado1+"&Lado2="+lado2)
-        fetch("https://final-implementacion.herokuapp.com/Rectangulo?Lado1="+lado1+"&Lado2="+lado2)
-        .then(res => res.json())
-        .then(data=> setResponse(data))
-
-    }
+    async function fetchValues() {
+    setLoading(true);
+    const data = await MathService.fetchRectangulo(lado1, lado2);
+    setResponse(data);
+    setLoading(false);
+  }
     const [lado1,setLado1] = useState(0);
     const [lado2,setLado2] = useState(0);
-    const [response,setResponse] = useState(null);;
+    const [response,setResponse] = useState(null);
+    const [loading, setLoading] = useState(false);
+    function renderData() {
+    if (loading) {
+      return (
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      );
+    } else {
+      return <h1>{response && response.number}</h1>;
+    }
+  }
         return (
             <div >
                 <div className='App-header'>

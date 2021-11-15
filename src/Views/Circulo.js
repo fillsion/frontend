@@ -1,16 +1,17 @@
 import React, { Component, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import MathService from "../Services/MathService";
+import { Spinner } from "react-bootstrap";
 function Circulo (){
-    function fetchValues(){
-        //fetch("http://localhost:3001/Circulo?Numero="+radius)
-        fetch("https://final-implementacion.herokuapp.com/Circulo?Numero="+radius)
-        .then(res => res.json())
-        .then(data=> setResponse(data))
-
-    }
+    async function fetchValues() {
+    setLoading(true);
+    const data = await MathService.fetchCirculo(radius);
+    setResponse(data);
+    setLoading(false);
+  }
     const [radius,setRadius] = useState(0);
-    const [response,setResponse] = useState(null);;
+    const [response,setResponse] = useState(null);
+    const [loading, setLoading] = useState(false);
         return (
             <div >
                 <div className='App-header'>
