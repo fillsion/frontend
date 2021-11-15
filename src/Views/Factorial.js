@@ -29,7 +29,7 @@ function Factorial() {
   return (
     <div>
       <div className="App-header">
-        <h1>Ingresa el numero</h1>
+        <h1 id="h1ID">Ingresa el numero</h1>
         <h5>numero</h5>
         <input
         id = "numeroID"
