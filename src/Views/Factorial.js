@@ -32,6 +32,7 @@ function Factorial() {
         <h1>Ingresa el numero</h1>
         <h5>numero</h5>
         <input
+        id = "numeroID"
           type="number"
           pattern="^[0-9]"
           title="Only Number"
@@ -41,7 +42,7 @@ function Factorial() {
           onChange={(e) => setNumber(e.target.value)}
         />
         <br />
-        <button onClick={fetchValues}>Calcular</button>
+        <button onClick ={fetchValues} id = "botonID">Calcular</button>
         {renderData()}
       </div>
     </div>
